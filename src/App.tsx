@@ -36,14 +36,14 @@ function App() {
         const newbubble: [number, number, number, number, string] = [
           Math.floor(Math.random() * 541),
           -60,
-          [-1, 1][Math.floor(Math.random() * 2)],
+          [-1, 0, 1][Math.floor(Math.random() * 3)],
           1,
           `${p.length}`,
         ];
         const newb = [...p, newbubble];
         return newb;
       });
-    }, 1500);
+    }, 1000);
   }, []);
   return (
     <div
