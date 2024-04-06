@@ -6,7 +6,7 @@ function App() {
   >([]);
   const backgroundDiv = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    setInterval(() => {
+    const updateBubbles = setInterval(() => {
       setBubbles((p) => {
         let bubbles_clone = structuredClone(p);
         for (let i = 0; i < bubbles_clone.length; ) {
@@ -31,7 +31,7 @@ function App() {
         return bubbles_clone;
       });
     }, 10);
-    setInterval(() => {
+    const spawnBubbles = setInterval(() => {
       setBubbles((p) => {
         const newbubble: [number, number, number, number, string] = [
           Math.floor(Math.random() * 541),
@@ -44,6 +44,10 @@ function App() {
         return newb;
       });
     }, 1000);
+    return (() => {
+      clearInterval(updateBubbles);
+      clearInterval(spawnBubbles);
+    });
   }, []);
   return (
     <div
