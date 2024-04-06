@@ -9,7 +9,5 @@
   width: 600px;
   height: 100%;
   background-color: gray;
-  display: grid;
-  grid-template-columns: repeat(10, 60px);
-  grid-template-rows: 1fr;
+  position: relative;
 }
